@@ -1,100 +1,23 @@
-<!-- header -->
-<nav class="navbar navbar-expand-lg px-5" id="header">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <span>
-        <img
-          src="http://icons.iconarchive.com/icons/thvg/wood-folders/512/Glossy-Library-icon.png"
-          width="40"
-          alt="Library icon"
-          srcset=""
-        />
-      </span>
-      <span class="ms-2">FreeLib</span>
-    </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"> </span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 px-5 mb-lg-0">
-        <li class="nav-item mx-2">
-          <button type="button" class="btn btn-outline-light">Sign Up</button>
-        </li>
-        <li class="nav-item mx-2">
-          <button type="button" class="btn btn-secondary">Sign In</button>
-        </li>
-      </ul>
-      <form class="d-flex mx-5" role="search">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-secondary" type="submit">Search</button>
-      </form>
-      <ul class="navbar-nav position-relative" hidden>
-        <a
-          class="nav-link dropdown-toggle"
-          href="#"
-          role="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          Dropdown
-        </a>
-        <ul class="dropdown-menu position-absolute translate-middle-x">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <!-- <li><hr class="dropdown-divider" /></li> -->
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
-      </ul>
+﻿<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark px-3" *ngIf="user">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+        <button class="btn btn-link nav-item nav-link" (click)="logout()">Logout</button>
     </div>
-  </div>
 </nav>
 
-<!-- main -->
-<div class="main">
-
-  <!-- aside -->
-  <aside>
-    <ul class="nav flex-column d-grid gap-2">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">My sheets</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Profile</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link ">Settings</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Active</a>
-      </li>
-    </ul>
-  </aside>
-  
-  <!--main content-->
-
-  <!-- bg-image -->
-  <img
-    class="bg-image"
-    src="https://free4kwallpapers.com/uploads/originals/2021/03/18/library-wallpaper.jpg"
-    alt=""
-    srcset=""
-  />
+<!-- main app container -->
+<div class="app-container" [ngClass]="{ 'bg-light': user }">
+    <alert></alert>
+    <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>
+
+ <!-- bg-image -->
+ <img
+ class="bg-image"
+ src="https://free4kwallpapers.com/uploads/originals/2021/03/18/library-wallpaper.jpg"
+ alt=""
+ srcset=""
+/>
+
