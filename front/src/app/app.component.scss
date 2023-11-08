@@ -1,0 +1,71 @@
+$primary-dark: #271810;
+$primary: #4a3a2f;
+$primary-light: #954520;
+$white: #f0e9d4;
+*,
+a {
+  color: #ffff;
+}
+.bg-image {
+  width: 100%;
+  height: 91%;
+  z-index: -10;
+  position: fixed;
+  top: 5;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+#header {
+  background: linear-gradient(to right, $primary-dark, $primary-light);
+}
+
+.main {
+  position: absolute;
+  top: 9.3%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.myBtn {
+    background: none;
+}
+.myBtn:hover {
+    background: $primary;
+}
+
+
+aside {
+  z-index: 1;
+  margin: 5% 1%;
+  padding: 2rem;
+  background-color: $primary-dark;
+  color: #ffff;
+  width: 15%;
+  border-radius: 30px;
+  box-shadow: black -20px 20px 10px 15px;
+}
+.main-container {
+  float: right;
+  width: 84%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 10%;
+  right: 0;
+  display: flex;
+}
+.card {
+  margin: 0.4rem;
+}
+
+.dropdown-menu {
+  z-index: 1;
+}
+
+.collapse{
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20rem;
+}

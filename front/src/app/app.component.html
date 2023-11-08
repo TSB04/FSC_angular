@@ -1,23 +1,146 @@
 ﻿<!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark px-3" *ngIf="user">
+<!-- <nav class="navbar navbar-expand navbar-dark bg-dark px-3" *ngIf="user">
     <div class="navbar-nav">
         <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
         <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
         <button class="btn btn-link nav-item nav-link" (click)="logout()">Logout</button>
     </div>
+</nav> -->
+
+<nav class="navbar navbar-expand-lg px-5 fixed-top" id="header">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <span>
+        <img
+          src="http://icons.iconarchive.com/icons/thvg/wood-folders/512/Glossy-Library-icon.png"
+          width="40"
+          alt="Library icon"
+          srcset=""
+        />
+      </span>
+      <span class="ms-2">FreeLib</span>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"> </span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div *ngIf="!user">
+        <ul class="navbar-nav me-auto mb-2 px-5 mb-lg-0">
+          <li class="nav-item mx-2">
+            <a href="account/register">
+              <button type="button" class="btn btn-outline-light">
+                Sign Up
+              </button>
+            </a>
+          </li>
+          <li class="nav-item mx-2">
+            <a href="account/login">
+              <button type="button" class="btn btn-secondary">Sign In</button>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <form class="d-flex" role="search">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-secondary" type="submit">Search</button>
+      </form>
+      <ul class="navbar-nav position-relative">
+        <!-- <a
+          class="nav-link dropdown-toggle"
+          href=""
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="true"
+        > -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="38"
+            height="38"
+            fill="currentColor"
+            class="bi bi-person-circle"
+            viewBox="0 0 16 16"
+          >
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+            <path
+              fill-rule="evenodd"
+              d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+            />
+          </svg>
+        <!-- </a> -->
+        <ul class="dropdown-menu position-absolute translate-middle-x">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <!-- <li><hr class="dropdown-divider" /></li> -->
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </ul>
+    </div>
+  </div>
 </nav>
 
+<!-- main -->
+
+<!-- aside -->
+<aside class="fixed-left" *ngIf="user">
+  <ul class="nav flex-column d-grid gap-2">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">My sheets</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Profile</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link">Settings</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/users">users</a>
+    </li>
+    <li class="nav-item" *ngIf="user">
+      <button class="btn btn-link nav-item nav-link" (click)="logout()">
+        Logout
+      </button>
+    </li>
+  </ul>
+</aside>
+
 <!-- main app container -->
-<div class="app-container" [ngClass]="{ 'bg-light': user }">
-    <alert></alert>
-    <router-outlet></router-outlet>
+<div class="main-container">
+  <div
+    class="card bg-dark"
+    style="width: 18rem; height: 14rem"
+    *ngFor="let sheet of sheets"
+  >
+    <img src="" class="card-img-top" alt="" />
+    <div class="card-body">
+      <h5 class="card-title">{{ sheet.title }}</h5>
+      <h6 class="card-title">{{ sheet.author }}</h6>
+      <p>{{ sheet.published_date }}</p>
+      <p class="card-text">
+        {{ sheet.desc | slice: 0:100 }}
+      </p>
+      <div>
+        <span>{{ sheet.stars.count }}</span>
+      </div>
+    </div>
+  </div>
 </div>
 
- <!-- bg-image -->
- <img
- class="bg-image"
- src="https://free4kwallpapers.com/uploads/originals/2021/03/18/library-wallpaper.jpg"
- alt=""
- srcset=""
-/>
-
+<router-outlet></router-outlet>
