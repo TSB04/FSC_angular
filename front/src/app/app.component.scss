@@ -6,27 +6,12 @@ $white: #f0e9d4;
 a {
   color: #ffff;
 }
-.bg-image {
-  width: 100%;
-  height: 91%;
-  z-index: -10;
-  position: fixed;
-  top: 5;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
+
 #header {
   background: linear-gradient(to right, $primary-dark, $primary-light);
+  height: 8%;
 }
 
-.main {
-  position: absolute;
-  top: 9.3%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
 .myBtn {
     background: none;
 }
@@ -35,37 +20,52 @@ a {
 }
 
 
+
+.app-container {
+ 
+}
+.main-container {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  top: 10%;
+}
+
 aside {
-  z-index: 1;
-  margin: 5% 1%;
+  position: sticky;
   padding: 2rem;
   background-color: $primary-dark;
   color: #ffff;
-  width: 15%;
+  width: 12%;
   border-radius: 30px;
   box-shadow: black -20px 20px 10px 15px;
+  margin-top: -5%;
 }
-.main-container {
-  float: right;
-  width: 84%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  position: fixed;
-  top: 10%;
-  right: 0;
+section {
   display: flex;
+  width: 88%;
+  height: 100%;
+  overflow: auto;
 }
 .card {
   margin: 0.4rem;
 }
 
-.dropdown-menu {
-  z-index: 1;
+.card:hover {
+  transform: scale(1.10);
+  transition: 0.5s;
 }
 
 .collapse{
   align-items: center;
   justify-content: flex-end;
   gap: 20rem;
+}
+
+.dropdown {
+  z-index: 10;
+  background-color: $white;
 }

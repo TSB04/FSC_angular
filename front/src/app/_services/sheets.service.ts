@@ -29,9 +29,18 @@ export class SheetsService {
     return this.http.get<Sheet[]>(`${environment.apiUrl}/sheets`);
   }
 
+  // create(sheet: Sheet) {
+  //   return this.http.post(`${environment.apiUrl}/sheets/`, sheet);
+  // }
+
+  // create sheet with token
   create(sheet: Sheet) {
-    return this.http.post(`${environment.apiUrl}/sheets/`, sheet);
+    return this.http.post(`${environment.apiUrl}/sheets/`, sheet, {
+      // headers: { Authorization: `Bearer ${token?.access}` },
+    });
   }
+
+
 
   getById(ine: string) {
     return this.http.get<Sheet>(`${environment.apiUrl}/sheets/${ine}`);

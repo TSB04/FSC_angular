@@ -1,13 +1,13 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, Inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AccountService } from '@app/_services';
 
-@Component({ templateUrl: 'account-layout.component.html' })
+@Component({selector: 'account-form', templateUrl: 'account-layout.component.html' })
 export class AccountLayoutComponent {
     constructor(
         private router: Router,
-        private accountService: AccountService
+        private accountService: AccountService,
     ) {
         // redirect to home if already logged in
         if (this.accountService.userValue) {

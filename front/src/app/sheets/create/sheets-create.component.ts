@@ -54,9 +54,9 @@ export class CreateSheetsComponent implements OnInit {
         this.alertService.success('Sheet created successfully', {
           keepAfterRouteChange: true,
         });
-        this.router.navigate(['../login'], { relativeTo: this.route });
+        // this.router.navigate(['../home'], { relativeTo: this.route });
       },
-      error: (error) => {
+      error: (error: string) => {
         this.alertService.error(error);
         this.loading = false;
       },
