@@ -59,17 +59,17 @@
     </div>
   </nav>
   <div class="main">
-    <aside class="fixed-left" *ngIf="user">
+    <aside class="fixed-left text-center" *ngIf="user">
       <h3>{{user.username}}</h3>
       <ul class="nav flex-column d-grid gap-2">
         <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link" href="/sheets/create">Create Sheet</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">My sheets</a>
+          <a class="nav-link" href="/sheets/mysheets">My sheets</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Profile</a>
+          <a class="nav-link" href="/home">Profile</a>
         </li>
         <li class="nav-item">
           <a class="nav-link">Settings</a>
@@ -78,9 +78,9 @@
           <a class="nav-link active" aria-current="page" href="/users">users</a>
         </li>
         <li class="nav-item" *ngIf="user">
-          <button class="btn btn-link nav-item nav-link" (click)="logout()">
+          <a class="btn btn-link nav-item nav-link" (click)="logout()">
             Logout
-          </button>
+          </a>
         </li>
       </ul>
     </aside>

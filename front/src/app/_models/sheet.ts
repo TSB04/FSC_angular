@@ -3,6 +3,7 @@ export class Sheet {
     title?: string;
     desc?: string;
     author?: string;
+    owner?: string;
     published_date?: string;
     stars?: {
         id: number;
@@ -19,4 +20,5 @@ export class Sheet {
         sheet: string;
         commented_at: string;
     };
+    stocks?: number;
 };

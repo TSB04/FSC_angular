@@ -31,9 +31,7 @@ export class SheetsService {
 
   // create sheet with token
   create(sheet: Sheet) {
-    return this.http.post(`${environment.apiUrl}/sheets/`, sheet, {
-      // headers: { Authorization: `Bearer ${token?.access}` },
-    });
+    return this.http.post(`${environment.apiUrl}/sheets/`, sheet);
   }
 
 

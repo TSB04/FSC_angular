@@ -5,6 +5,7 @@ import { SheetsRoutingModule } from './sheets-routing.module';
 import { SheetLayoutComponent } from '@app/sheets/layout/sheets-layout.component';
 import { CreateSheetsComponent } from './create/sheets-create.component';
 import { ListComponent } from './list/list.component';
+import { SheetComponent } from './sheet/sheet.component';
 
 
 
@@ -12,7 +13,8 @@ import { ListComponent } from './list/list.component';
   declarations: [
     SheetLayoutComponent,
     CreateSheetsComponent,
-    ListComponent
+    ListComponent,
+    SheetComponent
   ],
   imports: [
     CommonModule,

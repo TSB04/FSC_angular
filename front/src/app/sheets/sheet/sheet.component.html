@@ -1,0 +1,46 @@
+<div class="btn-toolbar d-flex justify-content-center h-15" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group me-2" role="group" aria-label="First group">
+    <button type="button" class="btn btn-primary"><i class="fa-solid fa-cart-shopping" style="color: #ee9c17;"></i></button>
+    <button type="button" class="btn btn-primary"><i class="fa-regular fa-bookmark"></i></button>
+    <button type="button" class="btn btn-primary"><i class="fa-solid fa-map-location" style="color: #1e3050;"></i></button>
+    <button type="button" class="btn btn-primary"><i class="fa-regular fa-address-book" style="color: #191230;"></i></button>
+  </div>
+  <div class="btn-group me-2" role="group" aria-label="Second group">
+    <button type="button" class="btn btn-secondary"><i class="fa-regular fa-heart" style="color: #e63333;"></i></button>
+    <button type="button" class="btn btn-secondary"><i class="fa-solid fa-pencil"></i></button>
+    <button type="button" class="btn btn-secondary"><i class="fa-regular fa-comment-dots"></i></button>
+  </div>
+  <div class="bg-dark" role="group" aria-label="Third group">
+    <button type="button" class="btn"><i class="fa-solid fa-trash-can" style="color: #ff0000;"></i></button>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <span class="d-flex">
+      <img
+        src="https://mycustombookcover.com/wp-content/uploads/2018/02/ebook3.png"
+        alt=""
+        srcset=""
+      />
+      <div>
+        <h5 class="card-title">{{ sheet.title }}</h5>
+        <h6 class="card-title">{{ sheet.author }}</h6>
+        <p>{{ sheet.published_date }}</p>
+      </div>
+    </span>
+    <p class="card-text text-center">
+      {{ sheet.desc }}
+    </p>
+    <span class="card-action d-flex">
+      <p>stock: {{ sheet.stock }}</p>
+      <p>
+        <i class="fa-solid fa-heart" style="color: #e2382c"></i>
+        {{ sheet.stars.length + 1 }}
+      </p>
+      <p>
+        <i class="fa-solid fa-comment" style="color: #1d3a6d"></i
+        >{{ sheet.comments.length + 1 }}
+      </p>
+    </span>
+  </div>
+</div>

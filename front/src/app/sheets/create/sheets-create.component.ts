@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
 
 import { SheetsService, AlertService } from '@app/_services';
 
 @Component({
-  selector: 'app-sheets',
   templateUrl: './sheets-create.component.html',
 })
 export class CreateSheetsComponent implements OnInit {
@@ -24,12 +22,15 @@ export class CreateSheetsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    const loggedInUser = JSON.parse(localStorage.getItem('user')!);
     this.form = this.formBuilder.group({
       ine: ['', Validators.required],
       title: ['', Validators.required],
       author: ['', Validators.required],
-      desc: ['', Validators.required, Validators.minLength(160)],
+      desc: ['',Validators.minLength(160)],
       published_date: ['', Validators.required],
+      //set the owner to the logged in user
+      owner: ['http://127.0.0.1:8000/users/' + loggedInUser.id + '/'],
     });
   }
 
@@ -54,7 +55,7 @@ export class CreateSheetsComponent implements OnInit {
         this.alertService.success('Sheet created successfully', {
           keepAfterRouteChange: true,
         });
-        // this.router.navigate(['../home'], { relativeTo: this.route });
+        this.router.navigate(['../home'], { relativeTo: this.route });
       },
       error: (error: string) => {
         this.alertService.error(error);

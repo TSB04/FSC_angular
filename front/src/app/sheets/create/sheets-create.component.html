@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card width bg-dark" style="width: 50vh;">
     <h4 class="card-header">{{title}} </h4>
     <div class="card-body">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
@@ -28,7 +28,6 @@
                 <input type="text" formControlName="desc" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.desc.errors }" />
                 <div *ngIf="submitted && f.desc.errors" class="invalid-feedback">
                     <div *ngIf="f.desc.errors.required">Book's description</div>
-                    <div *ngIf="f.desc.errors.minlength">Book's description must be at least 160 characters</div>
                 </div>
             </div>
             <div class="mb-3">

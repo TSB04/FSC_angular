@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CreateSheetsComponent } from './create/sheets-create.component';
 import { SheetLayoutComponent } from './layout/sheets-layout.component';
 import { ListComponent } from './list/list.component';
+import { SheetComponent } from './sheet/sheet.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,8 @@ const routes: Routes = [
     children: [
       {path: 'create', component: CreateSheetsComponent},
       {path: 'list', component: ListComponent},
+      {path: 'mysheets', component: ListComponent},
+      {path: ':ine', component: SheetComponent }
     ],
   },
 ];

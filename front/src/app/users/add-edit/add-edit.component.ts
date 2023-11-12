@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-import { jwtDecode } from 'jwt-decode';
 
 import { AccountService, AlertService } from '@app/_services';
 
@@ -14,26 +13,22 @@ export class AddEditComponent implements OnInit {
     loading = false;
     submitting = false;
     submitted = false;
-    token?: any;
-    decoded: any;
     constructor(
         private formBuilder: FormBuilder,
-        private route: ActivatedRoute,
         private router: Router,
         private accountService: AccountService,
         private alertService: AlertService
     ) { }
 
     ngOnInit() {
-        this.token = localStorage.getItem('user') || '';
-        this.decoded = jwtDecode(this.token?.access);
-        this.id = this.decoded.id;
+        this.id = this.router.url.split('/')[3];
+        console.log(this.id);
         // form with validation rules
         this.form = this.formBuilder.group({
-            first_name: ['', Validators.required],
-            last_name: ['', Validators.required],
-            username: ['', Validators.required],
-            // password only required in add mode
+            first_name: [''],
+            last_name: [''],
+            // user name & password are only required in add mode
+            username: ['', (!this.id ? [Validators.required] : [])],
             password: ['', [Validators.minLength(6), ...(!this.id ? [Validators.required] : [])]]
         });
 

@@ -1,16 +1,38 @@
-<div claas="card-container">
-  <span class="card" *ngFor="let sheet of sheets">
-    <img src="" class="card-img-top" alt="" />
-    <div class="card-body">
-      <h5 class="card-title">{{ sheet.title }}</h5>
-      <h6 class="card-title">{{ sheet.author }}</h6>
-      <p>{{ sheet.published_date }}</p>
-      <p class="card-text">
-        {{ sheet.desc | slice: 0:45 }}
-      </p>
-      <div>
-        <span>{{ sheet.stars.count }}</span>
+<div claas="card" id="container">
+  <div class="card" *ngFor="let sheet of sheets">
+    <a routerLink="../{{ sheet.ine }}">
+      <div class="card-body">
+        <span class="d-flex">
+          <img
+            src="https://mycustombookcover.com/wp-content/uploads/2018/02/ebook3.png"
+            alt=""
+            srcset=""
+          />
+          <div>
+            <h5 class="card-title">{{ sheet.title }}</h5>
+            <h6 class="card-title">{{ sheet.author }}</h6>
+            <p>{{ sheet.published_date }}</p>
+          </div>
+        </span>
+        <p
+          class="card-text text-start"
+          style="
+            width: 112%;
+            height: 4.5rem;
+            background-color: #9a9595;
+            margin-left: -0.8rem;
+            margin-top: -0.8rem;
+            overflow: hidden;
+          "
+        >
+          {{ sheet.desc}}
+        </p>
+          <span class="card-action d-flex" style=" height: 1rem; margin-top: -0.8rem; font-size: small; justify-content: space-around;">
+            <p>stock: {{ sheet.stock }}</p>
+            <p> <i class="fa-solid fa-heart" style="color: #e2382c;"></i> {{sheet.stars.length +1 }}</p>
+            <p><i class="fa-solid fa-comment" style="color: #1d3a6d;"></i>{{ sheet.comments.length +1 }}</p>
+          </span>
       </div>
-    </div>
-  </span>
+    </a>
+  </div>
 </div>
