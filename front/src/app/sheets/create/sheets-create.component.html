@@ -1,7 +1,7 @@
 <div class="card width bg-dark" style="width: 50vh;">
-    <h4 class="card-header">{{title}} </h4>
+    <h2 class="card-header">{{title}} </h2>
     <div class="card-body">
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="mb-3">
                 <label class="form-label">Book's ine</label>
                 <input type="number" formControlName="ine" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ine.errors }" />
@@ -40,9 +40,9 @@
             <div>
                 <button [disabled]="loading" class="btn btn-primary">
                     <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
-                    create
+                    {{action}}
                 </button>
-                <a routerLink="../" class="btn btn-link">Cancel</a>
+                <a routerLink="/" class="btn btn-link">Cancel</a>
             </div>
         </form>
     </div>

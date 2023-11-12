@@ -13,6 +13,8 @@ const routes: Routes = [
 
     children: [
       {path: 'create', component: CreateSheetsComponent},
+      { path: 'edit/:ine', component: CreateSheetsComponent },
+
       {path: 'list', component: ListComponent},
       {path: 'mysheets', component: ListComponent},
       {path: ':ine', component: SheetComponent }

@@ -1,7 +1,7 @@
-﻿<div>
+﻿<div class="container bg-dark">
     <div>
-        <h1>Hi {{user?.first_name}}!</h1>
-        <p>You're logged in with Angular 14!!</p>
+        <h1>Hi {{user?.first_name || user?.username}}!</h1>
+        <p>Welcome to your account profile</p>
         <p><a routerLink="/users">Manage Users</a></p>
     </div>
 </div>

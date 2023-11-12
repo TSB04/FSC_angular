@@ -3,11 +3,11 @@
 import { User } from '@app/_models';
 import { AccountService } from '@app/_services';
 
-@Component({ templateUrl: 'home.component.html', styleUrls: ['./home.component.scss'] })
+@Component({ templateUrl: 'home.component.html' })
 export class HomeComponent {
-    user: User | null;
+  user: User | null;
 
-    constructor(private accountService: AccountService) {
-        this.user = this.accountService.userValue;
-    }
+  constructor(private accountService: AccountService) {
+    this.user = this.accountService.userValue;
+  }
 }

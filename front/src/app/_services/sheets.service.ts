@@ -6,13 +6,12 @@ import { map } from 'rxjs/operators';
 
 import { environment } from '@environments/environment';
 import { Sheet } from '@app/_models';
-import { JwtInterceptor } from '@app/_helpers'; 
+import { JwtInterceptor } from '@app/_helpers';
 
 @Injectable({ providedIn: 'root' })
 export class SheetsService {
   private sheetSubject: BehaviorSubject<Sheet | null>;
   public sheet: Observable<Sheet | null>;
-  
 
   constructor(private router: Router, private http: HttpClient) {
     this.sheetSubject = new BehaviorSubject(
@@ -34,10 +33,15 @@ export class SheetsService {
     return this.http.post(`${environment.apiUrl}/sheets/`, sheet);
   }
 
-
   getById(ine: string) {
     return this.http.get<Sheet>(`${environment.apiUrl}/sheets/${ine}`);
   }
 
-  
+  update(ine: string, params: any) {
+    return this.http.put(`${environment.apiUrl}/sheets/${ine}/`, params);
+  }
+
+  delete(ine: string) {
+    return this.http.delete(`${environment.apiUrl}/sheets/${ine}/`);
+  }
 }
