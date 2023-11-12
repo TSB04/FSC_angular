@@ -2,6 +2,9 @@
     <div>
         <h1>Hi {{user?.first_name || user?.username}}!</h1>
         <p>Welcome to your account profile</p>
-        <p><a routerLink="/users">Manage Users</a></p>
+        <p>Your email is {{user?.email}}</p>
+        <p>Your are {{user?.isAdmin === true ? 'a super user' : 'not a super user'}}</p>
+        <p *ngIf="user?.isAdmin === true"><a routerLink="/sheets">Manage Sheets</a></p>
+        <p *ngIf="user?.isAdmin === true"><a routerLink="/users">Manage Users</a></p>
     </div>
 </div>

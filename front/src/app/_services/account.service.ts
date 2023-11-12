@@ -50,6 +50,8 @@ export class AccountService {
                     username: userInfo.username || '',
                     firstName: userInfo.first_name || '',
                     lastName: userInfo.last_name || '',
+                    email: userInfo.email || '',
+                    isAdmin: userInfo.isAdmin,
                     token: token.access
                 };
                 localStorage.setItem('user', JSON.stringify(user));

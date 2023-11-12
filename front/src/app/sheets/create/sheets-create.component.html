@@ -1,49 +1,101 @@
-<div class="card width bg-dark" style="width: 50vh;">
-    <h2 class="card-header">{{title}} </h2>
-    <div class="card-body">
-        <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="onSubmit()">
-            <div class="mb-3">
-                <label class="form-label">Book's ine</label>
-                <input type="number" formControlName="ine" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.ine.errors }" />
-                <div *ngIf="submitted && f.ine.errors" class="invalid-feedback">
-                    <div *ngIf="f.ine.errors.required">Book's ine is required</div>
-                </div>
+<div class="card width bg-dark" style="width: 60vh">
+  <h2 class="card-header">{{ title }}</h2>
+  <div class="card-body">
+    <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label class="form-label">Book's ine</label>
+        <input
+          type="number"
+          formControlName="ine"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.ine.errors }"
+        />
+        <div *ngIf="submitted && f.ine.errors" class="invalid-feedback">
+          <div *ngIf="f.ine.errors.required">Book's ine is required</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input
+          type="text"
+          formControlName="title"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.title.errors }"
+        />
+        <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+          <div *ngIf="f.title.errors.required">Book's title is required</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Book's author</label>
+        <input
+          type="text"
+          formControlName="author"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.author.errors }"
+        />
+        <div *ngIf="submitted && f.author.errors" class="invalid-feedback">
+          <div *ngIf="f.author.errors.required">Book's author is required</div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <div class="mb-3">
+          <label class="form-label">Publication date</label>
+          <input
+            type="date"
+            formControlName="published_date"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.published_date.errors }"
+          />
+          <div
+            *ngIf="submitted && f.published_date.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.published_date.errors.required">
+              Book's publication date is required
             </div>
-            <div class="mb-3">
-                <label class="form-label">Book's title</label>
-                <input type="text" formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }" />
-                <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
-                    <div *ngIf="f.title.errors.required">Book's title is required</div>
-                </div>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Book's author</label>
-                <input type="text" formControlName="author" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.author.errors }" />
-                <div *ngIf="submitted && f.author.errors" class="invalid-feedback">
-                    <div *ngIf="f.author.errors.required">Book's author is required</div>
-                </div>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Book's description</label>
-                <input type="text" formControlName="desc" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.desc.errors }" />
-                <div *ngIf="submitted && f.desc.errors" class="invalid-feedback">
-                    <div *ngIf="f.desc.errors.required">Book's description</div>
-                </div>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Book's publication date</label>
-                <input type="date" formControlName="published_date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.published_date.errors }" />
-                <div *ngIf="submitted && f.published_date.errors" class="invalid-feedback">
-                    <div *ngIf="f.published_date.errors.required">Book's publication date</div>
-                </div>
-            </div>
-            <div>
-                <button [disabled]="loading" class="btn btn-primary">
-                    <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
-                    {{action}}
-                </button>
-                <a routerLink="/" class="btn btn-link">Cancel</a>
-            </div>
-        </form>
-    </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Stock</label>
+          <input
+            type="number"
+            formControlName="stock"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.stock.errors }"
+          />
+          <div *ngIf="submitted && f.stock.errors" class="invalid-feedback">
+            <div *ngIf="f.stock.errors.required">Book's stock is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Description</label>
+        <input
+          type="text"
+          cols="70"
+          rows="15"
+          multiple
+          style="width: 400px; height: 100px"
+          formControlName="desc"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.desc.errors }"
+        />
+        <div *ngIf="submitted && f.desc.errors" class="invalid-feedback">
+          <div *ngIf="f.desc.errors.required">Book's description  is required</div>
+        </div>
+      </div>
+      <div>
+        <button [disabled]="loading" class="btn btn-primary">
+          <span
+            *ngIf="loading"
+            class="spinner-border spinner-border-sm me-1"
+          ></span>
+          {{ action }}
+        </button>
+        <a routerLink="/" class="btn btn-link">Cancel</a>
+      </div>
+    </form>
+  </div>
 </div>

@@ -33,6 +33,7 @@ export class CreateSheetsComponent implements OnInit {
       author: ['', Validators.required],
       desc: ['', Validators.minLength(160)],
       published_date: ['', Validators.required],
+      stock: ['', Validators.required],
       //set the owner to the logged in user
       owner: ['http://127.0.0.1:8000/users/' + loggedInUser.id + '/'],
     });
