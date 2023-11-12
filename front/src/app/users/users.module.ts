@@ -3,9 +3,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { UsersRoutingModule } from './users-routing.module';
-import { UsersLayoutComponent } from './users-layout.component';
-import { ListComponent } from './list.component';
-import { AddEditComponent } from './add-edit.component';
+import { UsersLayoutComponent } from './layout/users-layout.component';
+import { ListComponent } from './list/list.component';
+import { AddEditComponent } from './add-edit/add-edit.component';
 
 @NgModule({
     imports: [

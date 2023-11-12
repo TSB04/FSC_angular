@@ -15,7 +15,7 @@ const routes: Routes = [
     { path: 'sheets', loadChildren: sheetsModule },
 
     // otherwise redirect to library hall
-    { path: '**', redirectTo: '' }
+    { path: '**', redirectTo: '/sheets/list' }
 ];
 
 @NgModule({
